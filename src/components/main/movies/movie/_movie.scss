@@ -12,9 +12,10 @@
       0 8px 10px -6px rgb(0 0 0 / 0.1);
     position: relative;
     cursor: pointer;
+
     &::before {
       box-sizing: border-box;
-      content: "9";
+      content: attr(data-rating);
       position: absolute;
       z-index: 1;
       top: 1.5rem; /* Расположен в 0.5rem от верхнего края */
@@ -28,7 +29,21 @@
       align-items: center;
       justify-content: center;
       border-radius: 50%; /* Делает элемент кругом */
-      border: 2px green solid;
+    }
+    &--green {
+      &::before {
+        border: 2px green solid;
+      }
+    }
+    &--yellow {
+      &::before {
+        border: 2px yellow solid;
+      }
+    }
+    &--red {
+      &::before {
+        border: 2px red solid;
+      }
     }
     &:hover .movie__image {
       filter: none;

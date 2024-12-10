@@ -3,7 +3,6 @@ const URL = process.env.API_URL;
 
 async function getMovies() {
   try {
-    const moviesEl = document.querySelector(".movies");
     const resp = await fetch(URL, {
       headers: {
         "Content-Type": "application/json",
@@ -22,14 +21,28 @@ async function showMovies() {
   const DATA = await getMovies(URL);
   DATA.items.forEach((film) => {
     const movieEl = document.createElement("div");
+
     let genres = film.genres
       .map((el) => {
         return el.genre;
       })
       .join(", ");
+
+    let getRatingClass = () => {
+      if (film.ratingKinopoisk >= 8) {
+        return "movie__inner--green";
+      } else if (rating >= 5) {
+        return "movie__inner--yellow";
+      } else {
+        return "movie__inner--red";
+      }
+    };
+
     movieEl.classList.add("movie");
     movieEl.innerHTML = `
-      <div class="movie__inner">
+      <div class="movie__inner ${getRatingClass()}" data-rating="${
+      film.ratingKinopoisk
+    }">
       <img
             src=${film.posterUrl}
             alt=${film.nameRu}
@@ -41,6 +54,7 @@ async function showMovies() {
           </div>
       </div>      
     `;
+
     moviesEl.append(movieEl);
   });
 }
