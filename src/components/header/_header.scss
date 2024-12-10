@@ -1,0 +1,23 @@
+@use "@/styles/color";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: color.$background;
+  height: 4rem;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  border: 1px black solid;
+  &__logo {
+    font-size: 3rem;
+  }
+  &__search {
+    border-radius: 0.75rem;
+    color: color.$text-primary;
+    font-size: 2rem;
+    max-width: 16rem;
+    &:focus {
+      outline: 0.125rem color.$tertiary solid;
+    }
+  }
+}
