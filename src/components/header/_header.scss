@@ -9,13 +9,18 @@
   border-radius: 0.75rem;
   border: 1px black solid;
   &__logo {
-    font-size: 3rem;
+    font-size: 2rem;
+    &::first-letter {
+      color: color.$secondary;
+      font-size: 3rem;
+    }
   }
   &__search {
     border-radius: 0.75rem;
     color: color.$text-primary;
-    font-size: 2rem;
-    max-width: 16rem;
+    font-size: 1.5rem;
+    max-width: 12rem;
+    width: 100%;
     &:focus {
       outline: 0.125rem color.$tertiary solid;
     }
