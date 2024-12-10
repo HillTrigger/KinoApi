@@ -1,0 +1,45 @@
+@use "@/styles/color";
+
+.movie {
+  display: inline-flex;
+  flex-direction: column;
+  background-color: color.$surface;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  gap: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  position: relative;
+  &::before {
+    box-sizing: border-box;
+    content: "9";
+    position: absolute;
+    top: 1.5rem; /* Расположен в 0.5rem от верхнего края */
+    left: 1.5rem; /* Расположен в 0.5rem от левого края */
+    width: 3rem;
+    height: 3rem;
+    background-color: color.$tertiary;
+    color: color.$primary; /* Цвет текста */
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Делает элемент кругом */
+    border: 2px green solid;
+  }
+  &__image {
+    border-radius: 0.75rem;
+    object-fit: cover;
+    width: 100%;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  &__title {
+  }
+  &__category {
+    color: color.$secondary;
+  }
+}

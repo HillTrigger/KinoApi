@@ -1,0 +1,16 @@
+@use "./movie/movie";
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1rem;
+
+  // Медиазапрос для экранов меньше 69rem
+  @media (max-width: 70rem) {
+    padding: 0 1rem;
+  }
+  @media (max-width: 40rem) {
+    max-width: 20rem; // Ограничиваем максимальную ширину
+    margin: 0 auto; // Центрируем контейнер по горизонтали
+  }
+}

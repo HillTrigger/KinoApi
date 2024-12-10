@@ -5,6 +5,7 @@
   font-weight: 500;
   color: color.$text-primary;
   font-family: fonts.$Roboto;
+  margin: 0;
 }
 
 html,
@@ -13,4 +14,10 @@ body {
   // outline: 2px black solid;
   margin: 0 auto;
   background-color: color.$background;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
