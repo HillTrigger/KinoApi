@@ -11,6 +11,6 @@ export async function getMovies() {
     const respData = await resp.json();
     return respData;
   } catch (error) {
-    console.log("Ошибка получения фильмов: ", error);
+    console.log("Ошибка получения фильмов: ", error); //TODO сделать всплывающее окно
   }
 }

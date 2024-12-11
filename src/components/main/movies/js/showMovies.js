@@ -2,7 +2,10 @@
 
 export async function showMovies(DATA) {
   const moviesEl = document.querySelector(".movies");
-  moviesEl.innerHTML = "";
+  const wrapper = document.createElement("div"); //обёртка чтобы предотвратить частые обновления DOM
+  wrapper.classList.add("movies__films");
+  wrapper.innerHTML = ""; //очистка прошлого запроса
+
   DATA.items.forEach((film) => {
     const movieEl = document.createElement("div");
 
@@ -39,6 +42,8 @@ export async function showMovies(DATA) {
       </div>      
     `;
 
-    moviesEl.append(movieEl);
+    wrapper.append(movieEl);
   });
+
+  moviesEl.append(wrapper);
 }
