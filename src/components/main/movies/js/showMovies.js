@@ -9,7 +9,7 @@ export async function showMovies(DATA) {
   // wrapper.classList.add("movies__films");
   wrapper.innerHTML = ""; //очистка прошлого запроса
 
-  DATA.items.forEach((film) => {
+  DATA = DATA.items.forEach((film) => {
     const movieEl = document.createElement("div");
 
     let genres = film.genres

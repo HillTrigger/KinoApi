@@ -21,6 +21,9 @@
     text-align: center;
     max-width: 36rem;
     width: 50%;
+    @media (max-width: 42rem) {
+      width: 80%;
+    }
   }
   &__image {
     object-fit: cover;
@@ -59,4 +62,8 @@
       font-size: 1rem;
     }
   }
+}
+.--scroll-hidden {
+  height: 100%;
+  overflow: hidden;
 }
