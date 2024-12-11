@@ -45,18 +45,20 @@ export async function showMovies(DATA) {
       </div>      
     `;
     movieEl.addEventListener("click", () =>
-      showModal({
-        id: film.kinopoiskId,
-        name: film.nameRu,
-        genres,
-        image: film.posterUrl,
-        url: `https://www.kinopoisk.ru/${film.type.toLowerCase()}/${
-          film.kinopoiskId
-        }/`,
-      })
+      showModal({ id: film.kinopoiskId, genres })
     );
     wrapper.append(movieEl);
   });
 
   moviesEl.append(wrapper);
 }
+
+// {
+//   id: film.kinopoiskId,
+//   name: film.nameRu,
+//   genres,
+//   image: film.posterUrl,
+//   url: `https://www.kinopoisk.ru/${film.type.toLowerCase()}/${
+//     film.kinopoiskId
+//   }/`,
+// }
