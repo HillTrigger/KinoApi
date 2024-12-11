@@ -1,9 +1,12 @@
 // import { getMovies } from "./getMovies";
 
+import { showModal } from "../modal/js/showModal";
+
 export async function showMovies(DATA) {
-  const moviesEl = document.querySelector(".movies");
-  const wrapper = document.createElement("div"); //обёртка чтобы предотвратить частые обновления DOM
-  wrapper.classList.add("movies__films");
+  const moviesEl = document.querySelector(".movies__films");
+  const wrapper = document.createDocumentFragment(); //обёртка чтобы предотвратить частые обновления DOM
+  // const wrapper = document.createElement("div");
+  // wrapper.classList.add("movies__films");
   wrapper.innerHTML = ""; //очистка прошлого запроса
 
   DATA.items.forEach((film) => {
@@ -41,7 +44,17 @@ export async function showMovies(DATA) {
           </div>
       </div>      
     `;
-
+    movieEl.addEventListener("click", () =>
+      showModal({
+        id: film.kinopoiskId,
+        name: film.nameRu,
+        genres,
+        image: film.posterUrl,
+        url: `https://www.kinopoisk.ru/${film.type.toLowerCase()}/${
+          film.kinopoiskId
+        }/`,
+      })
+    );
     wrapper.append(movieEl);
   });
 

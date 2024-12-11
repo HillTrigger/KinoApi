@@ -1,3 +1,5 @@
+import "./modal/modal"; //логика модального окна
+
 import { getMovies } from "./js/getMovies";
 // import "./js/handleSearchInput";
 import { handleSearchInput } from "./js/handleSearchInput";

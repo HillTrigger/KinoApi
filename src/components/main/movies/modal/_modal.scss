@@ -8,11 +8,9 @@
   height: 100vh;
   background-color: rgba(color.$text-muted, 0.1);
   z-index: 99999;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   padding-top: 8rem;
   &__content {
+    margin: 0 auto;
     padding: 2rem;
     background-color: color.$surface;
     border-radius: 2rem;
@@ -27,6 +25,10 @@
     max-width: 32rem;
     width: 100%;
     border-radius: 1rem;
+
+    @media (max-width: 42rem) {
+      max-width: 20rem;
+    }
   }
   &__name {
     font-size: 3rem;
