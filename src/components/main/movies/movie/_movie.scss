@@ -1,6 +1,7 @@
 @use "@/styles/color";
 
 .movie {
+  margin: 0 auto;
   &__inner {
     display: inline-flex;
     flex-direction: column;

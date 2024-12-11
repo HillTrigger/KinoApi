@@ -2,15 +2,20 @@
 
 .movies {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(4, minmax(8rem, 1fr));
   gap: 1rem;
 
   // Медиазапрос для экранов меньше 69rem
-  @media (max-width: 70rem) {
-    padding: 0 1rem;
+  @media (max-width: 56rem) {
+    grid-template-columns: repeat(3, minmax(8rem, 1fr));
+
+    // padding: 0 1rem;
   }
-  @media (max-width: 40rem) {
-    max-width: 20rem; // Ограничиваем максимальную ширину
-    margin: 0 auto; // Центрируем контейнер по горизонтали
+  @media (max-width: 41rem) {
+    grid-template-columns: repeat(2, minmax(8rem, 1fr));
+  }
+  @media (max-width: 25rem) {
+    grid-template-columns: repeat(1, minmax(8rem, 14rem));
+    justify-content: center;
   }
 }
