@@ -1,12 +1,16 @@
 @use "./movie/movie";
 @use "./modal/modal";
+@use "./pagination/pagination";
 
 .movies {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   &__films {
     display: grid;
     grid-template-columns: repeat(4, minmax(8rem, 1fr));
     gap: 1rem;
-
+    
     // Медиазапрос для экранов меньше 69rem
     @media (max-width: 56rem) {
       grid-template-columns: repeat(3, minmax(8rem, 1fr));

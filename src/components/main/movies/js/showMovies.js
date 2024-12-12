@@ -1,15 +1,14 @@
 // import { getMovies } from "./getMovies";
 
 import { showModal } from "../modal/js/showModal";
-const moviesContainer = document.querySelector(".movies__films");
 export async function showMovies(DATA) {
   const moviesEl = document.querySelector(".movies__films");
   const wrapper = document.createDocumentFragment(); //обёртка чтобы предотвратить частые обновления DOM
   // const wrapper = document.createElement("div");
   // wrapper.classList.add("movies__films");
-  moviesContainer.innerHTML = ""; //очистка прошлого запроса
+  moviesEl.innerHTML = ""; //очистка прошлого запроса
 
-  DATA = DATA.items.forEach((film) => {
+  DATA = DATA.items.forEach((film, index) => {
     const movieEl = document.createElement("div");
 
     let genres = film.genres
@@ -47,6 +46,7 @@ export async function showMovies(DATA) {
     movieEl.addEventListener("click", () =>
       showModal({ id: film.kinopoiskId, genres })
     );
+    console.log(index)
     wrapper.append(movieEl);
   });
 

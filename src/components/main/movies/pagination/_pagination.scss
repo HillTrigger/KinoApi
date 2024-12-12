@@ -1,0 +1,40 @@
+@use "@/styles/color";
+
+.pagination {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  gap: 1rem;
+  background-color: color.$primary;
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  &__btn-left, &__btn-right {
+    border: none;
+    background-color: color.$primary;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    filter: brightness(90%);
+
+    &:hover {
+    filter: brightness(95%);
+    // background-color: color.$text-muted;
+    }
+    &:hover .pagination__arrow {
+      // stroke: color.$surface;
+    }
+  }
+  &__btn-left{
+    transform: scale(-1, 1);
+    box-shadow: -2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+  }
+  &__arrow {
+    stroke: color.$secondary;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
