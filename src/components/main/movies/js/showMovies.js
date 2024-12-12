@@ -1,13 +1,13 @@
 // import { getMovies } from "./getMovies";
 
 import { showModal } from "../modal/js/showModal";
-
+const moviesContainer = document.querySelector(".movies__films");
 export async function showMovies(DATA) {
   const moviesEl = document.querySelector(".movies__films");
   const wrapper = document.createDocumentFragment(); //обёртка чтобы предотвратить частые обновления DOM
   // const wrapper = document.createElement("div");
   // wrapper.classList.add("movies__films");
-  wrapper.innerHTML = ""; //очистка прошлого запроса
+  moviesContainer.innerHTML = ""; //очистка прошлого запроса
 
   DATA = DATA.items.forEach((film) => {
     const movieEl = document.createElement("div");
