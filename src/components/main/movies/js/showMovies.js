@@ -1,6 +1,7 @@
 // import { getMovies } from "./getMovies";
 
 import { showModal } from "../modal/js/showModal";
+
 export async function showMovies(films) {
   const moviesEl = document.querySelector(".movies__films");
   const wrapper = document.createDocumentFragment(); //обёртка чтобы предотвратить частые обновления DOM
