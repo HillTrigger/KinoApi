@@ -5,9 +5,16 @@ export const pagination = (data) => {
   let filmCount = 10; //количество карт на странице
   let currentPage = 1; //текущая страница
   let pagesCount = null; //вынесли pagesCount из остальных функций для удобства
-  console.log(films);
+  // console.log(films);
   const filmsContainer = document.querySelector(".movies__films"); //куда добавлять карты
   const paginatinon = document.querySelector(".pagination"); //наш pagination с классом --hidden
+
+  const preloadFilms = (films) => {
+    films.forEach((film) => {
+      let image = new Image(); //создаем обьект image для предзагрузки изображения
+      image.src = film.posterUrl;
+    });
+  };
 
   const renderFilms = (films, container, numberOfFilms, page) => {
     container.innerHtml = ""; //при каждом рендере очищаем предыдущий результат
@@ -17,7 +24,11 @@ export const pagination = (data) => {
     const lastFilmIndex = firstFilmIndex + numberOfFilms; // последний индекс массива текущей страницы
 
     const filmsOnPage = films.slice(firstFilmIndex, lastFilmIndex); // с помощью полученных индексов создаём новый массив
-
+    const filmsOnNextPage = films.slice(
+      firstFilmIndex + filmCount,
+      lastFilmIndex + filmCount
+    );
+    preloadFilms(filmsOnNextPage);
     showMovies(filmsOnPage); //полученный массив добавляем на страницу
   };
 

@@ -5,11 +5,10 @@ import { getMovies } from "./js/getMovies";
 import { handleSearchInput } from "./js/handleSearchInput";
 
 import { showMovies } from "./js/showMovies";
-import top250films from '@/assests/jsons/topFilmBd.json';
+import top250films from "@/assests/jsons/topFilmBd.json";
 import { pagination } from "./js/pagination";
 
-
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
   const formSearchEl = document.querySelector(".header__form");
   formSearchEl.addEventListener("submit", handleSearchInput);
 
@@ -23,4 +22,4 @@ window.addEventListener('DOMContentLoaded', () => {
   //   })
   //   .catch((err) => console.log(err));
   pagination(top250films);
-})
+});
