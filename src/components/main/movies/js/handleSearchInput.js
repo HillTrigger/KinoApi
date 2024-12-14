@@ -1,3 +1,4 @@
+import { pagination } from "./pagination";
 import { search } from "./search";
 
 import { showMovies } from "./showMovies";
@@ -19,7 +20,7 @@ export async function handleSearchInput(e) {
     if (!input.value) return;
     let data = await search(input.value);
     input.value = "";
-    showMovies(data);
+    pagination(data);
   } catch (error) {
     console.error("Ошибка:", error);
   } finally {
