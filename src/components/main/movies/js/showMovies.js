@@ -19,29 +19,27 @@ export async function showMovies(films) {
 
     let getRatingClass = () => {
       if (film.ratingKinopoisk >= 8) {
-        return "movie__inner--green";
+        return "movie--green";
       } else if (film.ratingKinopoisk >= 5) {
-        return "movie__inner--yellow";
+        return "movie--yellow";
       } else {
-        return "movie__inner--red";
+        return "movie--red";
       }
     };
-
-    movieEl.classList.add("movie");
+    // <div class="movie__inner ${getRatingClass()}" data-rating="${
+    //   film.ratingKinopoisk
+    // }">
+    // movieEl.classList.add("movie");
+    movieEl.className = `movie ${getRatingClass()}`;
+    movieEl.dataset.rating = film.ratingKinopoisk;
     movieEl.innerHTML = `
-      <div class="movie__inner ${getRatingClass()}" data-rating="${
-      film.ratingKinopoisk
-    }">
       <img
             src=${film.posterUrl}
             alt=${film.nameRu}
             class="movie__image"
           />
-          <div class="movie__info">
             <h2 class="movie__title">${film.nameRu}</h2>
             <p class="movie__category">${genres}</p>
-          </div>
-      </div>      
     `;
     movieEl.addEventListener("click", () =>
       showModal({ id: film.kinopoiskId, genres })

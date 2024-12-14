@@ -2,10 +2,10 @@ import { showMovies } from "./showMovies";
 
 export const pagination = (data) => {
   let films = data.items; //массив фильмов
-  let filmCount = 4; //количество карт на странице
+  let filmCount = 10; //количество карт на странице
   let currentPage = 1; //текущая страница
   let pagesCount = null; //вынесли pagesCount из остальных функций для удобства
-
+  console.log(films);
   const filmsContainer = document.querySelector(".movies__films"); //куда добавлять карты
   const paginatinon = document.querySelector(".pagination"); //наш pagination с классом --hidden
 
@@ -23,6 +23,11 @@ export const pagination = (data) => {
 
   const renderPagination = (films, filmCount) => {
     pagesCount = Math.ceil(films.length / filmCount); //считаем сколько всего страниц в массиве
+
+    if (pagesCount <= 1) {
+      paginatinon.classList.add("pagination--hidden");
+      return;
+    } //если страниц 1 то не показывать пагинацию
 
     paginatinon.querySelector(".pagination__counter").textContent = // записываем на pagination текущую страницу и сколько всего
       currentPage + "/" + pagesCount;

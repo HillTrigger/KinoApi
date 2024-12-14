@@ -13,11 +13,12 @@ body {
   max-width: 69rem;
   // outline: 2px black solid;
   margin: 0 auto;
+  // height: 100vh;
   background-color: color.$background;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  // justify-content: space-between;
 }

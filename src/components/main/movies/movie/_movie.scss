@@ -2,53 +2,52 @@
 
 .movie {
   margin: 0 auto;
-  &__inner {
-    display: inline-flex;
-    flex-direction: column;
-    background-color: color.$surface;
-    padding: 1rem;
-    border-radius: 0.75rem;
-    gap: 0.5rem;
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-      0 8px 10px -6px rgb(0 0 0 / 0.1);
-    position: relative;
-    cursor: pointer;
-
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  background-color: color.$surface;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  gap: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  position: relative;
+  cursor: pointer;
+  &::before {
+    box-sizing: border-box;
+    content: attr(data-rating);
+    position: absolute;
+    z-index: 1;
+    top: 1.5rem; /* Расположен в 0.5rem от верхнего края */
+    left: 1.5rem; /* Расположен в 0.5rem от левого края */
+    width: 3rem;
+    height: 3rem;
+    background-color: color.$tertiary;
+    color: color.$primary; /* Цвет текста */
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Делает элемент кругом */
+  }
+  &--green {
     &::before {
-      box-sizing: border-box;
-      content: attr(data-rating);
-      position: absolute;
-      z-index: 1;
-      top: 1.5rem; /* Расположен в 0.5rem от верхнего края */
-      left: 1.5rem; /* Расположен в 0.5rem от левого края */
-      width: 3rem;
-      height: 3rem;
-      background-color: color.$tertiary;
-      color: color.$primary; /* Цвет текста */
-      font-size: 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%; /* Делает элемент кругом */
+      border: 2px green solid;
     }
-    &--green {
-      &::before {
-        border: 2px green solid;
-      }
+  }
+  &--yellow {
+    &::before {
+      border: 2px yellow solid;
     }
-    &--yellow {
-      &::before {
-        border: 2px yellow solid;
-      }
+  }
+  &--red {
+    &::before {
+      border: 2px red solid;
     }
-    &--red {
-      &::before {
-        border: 2px red solid;
-      }
-    }
-    &:hover .movie__image {
-      filter: none;
-    }
+  }
+  &:hover .movie__image {
+    filter: none;
   }
 
   &__image {
@@ -63,8 +62,10 @@
     gap: 0.25rem;
   }
   &__title {
+    font-size: 1rem;
   }
   &__category {
+    font-size: 0.75rem;
     color: color.$secondary;
   }
 }
